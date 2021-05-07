@@ -34,9 +34,6 @@ $(document).ready(function () {
         });
     });
 
-    /* ----------------  Animate On Scroll  ---------------- */
-    AOS.init();
-
 
     /* ------------------ Navbar Shrink ------------------- */
     //   $(window).on("scroll", function () {
