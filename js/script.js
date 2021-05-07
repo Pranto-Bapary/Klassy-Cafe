@@ -1,46 +1,65 @@
-$('.owl-carousel').owlCarousel({
-    loop: true,
-    margin: 60,
-    nav: true,
-    autoplay: true,
-    autoplayTimeout: 2500,
-    responsive: {
-        280: {
+$(document).ready(function () {
+    /* ---------------------------- Preloader ---------------------------- */
+    $(window).on("load", function () {
+        $('.preloader').fadeOut("slow");
+    });
 
-            items: 1
-        },
-        320: {
+    /* ------------------------ Menu Carousel ------------------------- */
+    $('.our-menu').owlCarousel({
+        loop: true,
+        margin: 20,
+        nav: true,
+        autoplay: true,
+        autoplayTimeout: 2500,
+        responsiveClass: true,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            600: {
 
-            items: 1
-        },
-        360: {
+                items: 2,
+            },
+            1000: {
 
-            items: 1
-        },
-        361: {
-
-            items: 1
-        },
-        576: {
-            items: 2,
-            margin: 48
-        },
-        767: {
-            items: 3
-        },
-        991: {
-            items: 3,
-            margin: 30
-        },
-        1140: {
-            items: 4
-        },
-        1200: {
-            items: 5
-        },
-        1368: {
-            items: 5
+                items: 5,
+            }
         }
+    });
 
-    }
-})
+    /* ------------------------- ScrollIt -------------------------- */
+    $(function () {
+        $.scrollIt({
+            topOffset: -100
+        });
+    });
+
+    /* ----------------  Animate On Scroll  ---------------- */
+    AOS.init();
+
+
+    /* ------------------ Navbar Shrink ------------------- */
+    //   $(window).on("scroll", function () {
+    //     if ($(this).scrollTop() > 90) {
+    //         $(".navbar").addClass("navbar-shrink");
+    //     } else {
+    //         $(".navbar").removeClass("navbar-shrink");
+    //     }
+    // });
+
+    /* -------------  Scroll to Top Button  -------------- */
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 200) {
+            $('.topBtn').fadeIn();
+        } else {
+            $('.topBtn').fadeOut();
+        }
+    });
+
+    $('.topBtn').click(function () {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 800);
+    });
+
+});
